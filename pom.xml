@@ -118,7 +118,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass></mainClass>
+                            <mainClass>pheme.storm.RemoteMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
