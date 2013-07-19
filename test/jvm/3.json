@@ -1,0 +1,293 @@
+{
+    "cluster_name" : "elasticsearch",
+    "master_node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+    "blocks" : { },
+    "nodes" : {
+        "hCk20v-hTJm7LeqpLuvmoQ" : {
+            "name" : "Echo",
+            "transport_address" : "inet[/10.4.32.144:9302]",
+            "attributes" : { }
+        },
+        "UVFZgC1gTCGlVXooR5Mb7A" : {
+            "name" : "Prodigy",
+            "transport_address" : "inet[/10.4.32.144:9301]",
+            "attributes" : { }
+        },
+        "qCM_bmUsSD2z6Ff5vmM3rw" : {
+            "name" : "Lifter",
+            "transport_address" : "inet[/10.4.32.144:9300]",
+            "attributes" : { }
+        }
+    },
+    "metadata" : {
+        "templates" : { },
+        "indices" : {
+            "wsnparis" : {
+                "state" : "open",
+                "settings" : {
+                    "index.number_of_shards" : "5",
+                    "index.number_of_replicas" : "1",
+                    "index.version.created" : "900299"
+                },
+                "mappings" : {
+                    "talk" : {
+                        "properties" : {
+                            "title" : {
+                                "type" : "string"
+                            },
+                            "speaker" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
+                },
+                "aliases" : [ ]
+            },
+            "index1" : {
+                "state" : "open",
+                "settings" : {
+                    "index.number_of_replicas" : "1",
+                    "index.number_of_shards" : "2",
+                    "index.version.created" : "900299"
+                },
+                "mappings" : {
+                    "talk" : {
+                        "properties" : {
+                            "title" : {
+                                "type" : "string"
+                            },
+                            "speaker" : {
+                                "type" : "string"
+                            }
+                        }
+                    }
+                },
+                "aliases" : [ ]
+            }
+        }
+    },
+    "routing_table" : {
+        "indices" : {
+            "wsnparis" : {
+                "shards" : {
+                    "0" : [ {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                        "relocating_node" : null,
+                        "shard" : 0,
+                        "index" : "wsnparis"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                        "relocating_node" : null,
+                        "shard" : 0,
+                        "index" : "wsnparis"
+                    } ],
+                    "1" : [ {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                        "relocating_node" : null,
+                        "shard" : 1,
+                        "index" : "wsnparis"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                        "relocating_node" : null,
+                        "shard" : 1,
+                        "index" : "wsnparis"
+                    } ],
+                    "2" : [ {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                        "relocating_node" : null,
+                        "shard" : 2,
+                        "index" : "wsnparis"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                        "relocating_node" : null,
+                        "shard" : 2,
+                        "index" : "wsnparis"
+                    } ],
+                    "3" : [ {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                        "relocating_node" : null,
+                        "shard" : 3,
+                        "index" : "wsnparis"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                        "relocating_node" : null,
+                        "shard" : 3,
+                        "index" : "wsnparis"
+                    } ],
+                    "4" : [ {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                        "relocating_node" : null,
+                        "shard" : 4,
+                        "index" : "wsnparis"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                        "relocating_node" : null,
+                        "shard" : 4,
+                        "index" : "wsnparis"
+                    } ]
+                }
+            },
+            "index1" : {
+                "shards" : {
+                    "0" : [ {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                        "relocating_node" : null,
+                        "shard" : 0,
+                        "index" : "index1"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                        "relocating_node" : null,
+                        "shard" : 0,
+                        "index" : "index1"
+                    } ],
+                    "1" : [ {
+                        "state" : "STARTED",
+                        "primary" : false,
+                        "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                        "relocating_node" : null,
+                        "shard" : 1,
+                        "index" : "index1"
+                    }, {
+                        "state" : "STARTED",
+                        "primary" : true,
+                        "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                        "relocating_node" : null,
+                        "shard" : 1,
+                        "index" : "index1"
+                    } ]
+                }
+            }
+        }
+    },
+    "routing_nodes" : {
+        "unassigned" : [ ],
+        "nodes" : {
+            "hCk20v-hTJm7LeqpLuvmoQ" : [ {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                "relocating_node" : null,
+                "shard" : 0,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                "relocating_node" : null,
+                "shard" : 1,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                "relocating_node" : null,
+                "shard" : 3,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "hCk20v-hTJm7LeqpLuvmoQ",
+                "relocating_node" : null,
+                "shard" : 0,
+                "index" : "index1"
+            } ],
+            "UVFZgC1gTCGlVXooR5Mb7A" : [ {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                "relocating_node" : null,
+                "shard" : 0,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                "relocating_node" : null,
+                "shard" : 2,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                "relocating_node" : null,
+                "shard" : 3,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                "relocating_node" : null,
+                "shard" : 4,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : false,
+                "node" : "UVFZgC1gTCGlVXooR5Mb7A",
+                "relocating_node" : null,
+                "shard" : 1,
+                "index" : "index1"
+            } ],
+            "qCM_bmUsSD2z6Ff5vmM3rw" : [ {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                "relocating_node" : null,
+                "shard" : 1,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                "relocating_node" : null,
+                "shard" : 2,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                "relocating_node" : null,
+                "shard" : 4,
+                "index" : "wsnparis"
+            }, {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                "relocating_node" : null,
+                "shard" : 0,
+                "index" : "index1"
+            }, {
+                "state" : "STARTED",
+                "primary" : true,
+                "node" : "qCM_bmUsSD2z6Ff5vmM3rw",
+                "relocating_node" : null,
+                "shard" : 1,
+                "index" : "index1"
+            } ]
+        }
+    },
+    "allocations" : [ ]
+}
