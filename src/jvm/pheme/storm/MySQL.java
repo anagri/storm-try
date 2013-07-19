@@ -1,16 +1,17 @@
 package pheme.storm;
 
+import java.io.Serializable;
 import java.sql.*;
 
-public class MySQL {
-    private Connection connection;
-    private ResultSet resultSet;
-    private Statement statement;
+import static java.lang.String.format;
 
-    public MySQL() {
+public class MySQL implements Serializable {
+    private Connection connection;
+
+    public MySQL(String dbHost, String dbPort, String dbName, String dbUser, String dbPassword) {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/sprinklr?user=root&password=");
+            connection = DriverManager.getConnection(format("jdbc:mysql://%s:%s/%s?user=%s&password=%s", dbHost, dbPort, dbName, dbUser, dbPassword));
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         } catch (SQLException e) {
@@ -20,8 +21,7 @@ public class MySQL {
 
     public Statement statement() {
         try {
-            statement = connection.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
-            return statement;
+            return connection.createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_READ_ONLY);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

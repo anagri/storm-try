@@ -6,7 +6,7 @@ import backtype.storm.topology.TopologyBuilder;
 import backtype.storm.utils.Utils;
 import org.junit.Test;
 
-public class MainTest {
+public class RemoteMainTest {
     @Test
     public void testMain() throws Exception {
         LocalCluster cluster = new LocalCluster();
@@ -15,9 +15,9 @@ public class MainTest {
         conf.setNumWorkers(2);
 
         TopologyBuilder builder = new TopologyBuilder();
-        builder.setSpout("tweet", new MySQLSpout(), 1);
+        builder.setSpout("tweet", new MySQLSpout("localhost", "3306", "sprinklr", "root", ""), 1);
         builder.setBolt("tweetParser", new TweetParserBolt(), 10).shuffleGrouping("tweet");
-        builder.setBolt("elastic", new ElasticSearchBolt()).shuffleGrouping("tweetParser");
+        builder.setBolt("elastic", new ElasticSearchBolt("localhost", 9300, "twitter", "tweets")).shuffleGrouping("tweetParser");
 
         cluster.submitTopology("test", conf, builder.createTopology());
 

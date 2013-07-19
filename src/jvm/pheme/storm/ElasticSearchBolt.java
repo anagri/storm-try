@@ -24,18 +24,26 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 @SuppressWarnings("serial")
 public class ElasticSearchBolt extends BaseRichBolt {
     private static final Logger LOG = LoggerFactory.getLogger(ElasticSearchBolt.class);
+    private final String indexName;
+    private final String type;
     private OutputCollector collector;
     private Client client;
+    private final String host;
+    private final Integer port;
+
+    public ElasticSearchBolt(String host, int port, String indexName, String type) {
+        this.host = host;
+        this.port = port;
+        this.indexName = indexName;
+        this.type = type;
+    }
 
     @Override
     @SuppressWarnings("rawtypes")
     public void prepare(Map stormConf, TopologyContext context, OutputCollector collector) {
         this.collector = collector;
-        String elasticSearchHost = "localhost";
-        Integer elasticSearchPort = 9300;
-
 //        Settings settings = ImmutableSettings.settingsBuilder().put("cluster.name", "Eros").build();
-        client = new TransportClient().addTransportAddress(new InetSocketTransportAddress(elasticSearchHost, elasticSearchPort));
+        client = new TransportClient().addTransportAddress(new InetSocketTransportAddress(host, port));
     }
 
     @Override
@@ -49,7 +57,7 @@ public class ElasticSearchBolt extends BaseRichBolt {
         String via = input.getString(6);
 
         try {
-            IndexResponse response = client.prepareIndex("sprinklr", "twitter", id)
+            IndexResponse response = client.prepareIndex(indexName, type, id)
                     .setSource(jsonBuilder()
                             .startObject()
                             .field("user", username)
